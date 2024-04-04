@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organización de Eventos</title>
+  
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="assets/Eventos.png" alt="Logo de la organización" width="200" height="auto" >
+    </div>
+    <nav>
+      <ul>
+        <li class="selected"><a href="/eventos">Inicio</a></li>
+        <li><a href="/administracion">Administración de Eventos</a></li>
+        <li><a href="#" (click)="closeSession()">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main-content">
+    <header>
+      <div class="container">
+        <h1>Organización de Eventos</h1>
+        <button class="menu-toggle">&#9776;</button>
+      </div>
+    </header>
+
+    <div class="selector-container">
+      <div class="container">
+        <label for="selector">Área de interés: </label>
+        <select id="selector" [(ngModel)]="selectedArea" (ngModelChange)="changeEvento()">
+          <option value="" selected>Todas</option>
+          <option value="" *ngFor="let area of areas" [value]="area.NomArea">{{area.NomArea}}</option>
+        </select>
+      </div>
+    </div>
+
+    <!--<div class="eventos-container">
+      <div class="evento text-center" *ngFor="let evento of eventos">
+        <h2>{{evento.NomEvento}}</h2>
+        <p>{{evento.Descripcion}}</p>
+        <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
+      </div>
+    </div>-->
+
+    <div class="main container">
+      <ul class="cards justify-content-center">
+        <li class="cards_item" *ngFor="let evento of eventos">
+          <div class="card">
+            <div class="card_image">
+              <img src="{{evento.Imagen}}" height="420" width="327"/>
+              <span class="card_price">{{evento.Cupo}}</span>
+            </div>
+            <div class="card_content">
+              <h2 class="card_title">{{evento.NomEvento}}</h2>
+              <div class="card_text">
+                <p>{{evento.Descripcion}}
+                </p>
+                <hr />
+                <p class="info">Porcentaje de asistencia esperado: </p>
+                <!--<p>Served with your choice of dressing on the side: <strong>housemade ranch</strong>, <strong>cherry balsamic
+                    vinaigrette</strong>, <strong>creamy chipotle</strong>, <strong>avocado green goddess</strong>, or <strong>honey mustard</strong>. Add your choice
+                  of protein for $2 more.
+                </p>-->
+              </div>
+            </div>
+            <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
+          </div>
+        </li>
+      </ul >
+    </div>
+
+    <!-- Modal de detalles -->
+    <div id="modal" class="modal" (click)="cerrarModal()">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="evento-nombre">{{selectedEvento.NomEvento}}</h2>
+        <p id="evento-descripcion">{{selectedEvento.Descripcion}}</p>
+        <div class="modal-buttons">
+          <button *ngIf="selectedEvento && selectedEvento._id" (click)="editarEvento(selectedEvento._id)">Editar Evento</button>
+          <button *ngIf="selectedEvento && selectedEvento._id" (click)="verParticipantes(selectedEvento._id)">Ver Participantes</button>
+          <button *ngIf="selectedEvento && selectedEvento._id" (click)="eliminarEvento(selectedEvento._id)">Eliminar Evento</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

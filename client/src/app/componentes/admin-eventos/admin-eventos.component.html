@@ -1,0 +1,76 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organización de Eventos</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-container">
+      <img src="assets/Eventos.png" alt="Logo de la organización" width="200" height="auto">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/eventos">Inicio</a></li>
+        <li class="selected"><a href="/administracion">Administración de Eventos</a></li>
+        <li><a href="#">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content containter">
+    <header>
+      <div class="container">
+        <h1>Organización de Eventos</h1>
+      </div>
+    </header>
+
+    <div class="formulario-container col-md-7">
+      <h2>Agregar Nuevo Evento</h2>
+      <!-- Añadir un formulario -->
+      <form (submit)="saveEvento()">
+        <!-- Campo para el nombre del evento -->
+        <label for="nomEvento-evento">Nombre del Evento:</label>
+        <input type="text" id="nomEvento-evento" name="nomEvento-evento" required [(ngModel)]="evento.NomEvento">
+
+        <!-- Campo para la imagen -->
+        <label for="imagen-evento">Imagen:</label>
+        <input type="text" id="imagen-evento" name="imagen-evento" required [(ngModel)]="evento.Imagen">
+
+        <!-- Campo para la descripción del evento -->
+        <label for="descripcion-evento">Descripción del Evento:</label>
+        <textarea id="descripcion-evento" name="descripcion-evento" rows="4" required
+          [(ngModel)]="evento.Descripcion"></textarea>
+
+        <!-- Campo para la ciudad -->
+        <label for="ciudad-evento">Ciudad:</label>
+        <select id="ciudad-evento" name="ciudad-evento" [(ngModel)]="evento.Ciudad">
+          <option value="">Selecciona un área</option>
+          <option *ngFor="let ciudad of ciudades" [value]="ciudad.NomCiudad">{{ciudad.NomCiudad}}</option>
+        </select>
+
+        <!-- Campo para el área del evento -->
+        <label for="area-evento">Área del evento:</label>
+        <select id="area-evento" name="area-evento" [(ngModel)]="evento.Area">
+          <option value="">Selecciona un área</option>
+          <option *ngFor="let area of areas" [value]="area.NomArea">{{area.NomArea}}</option>
+        </select>
+
+        <!-- Campo para la fecha de inicio -->
+        <label for="fechaIni-evento">Fecha Inicio:</label>
+        <input type="date" id="fechaInicio-evento" name="fechaInicio-evento" required [(ngModel)]="evento.FechaInicio">
+
+        <!-- Campo para la fecha de fin -->
+        <label for="fechaFin-evento">Fecha Final:</label>
+        <input type="date" id="fechaFin-evento" name="fechaFin-evento" required [(ngModel)]="evento.FechaFin">
+
+        <!-- Campo para el cupo del evento -->
+        <label for="cupo-evento">Cupo del Evento:</label>
+        <input type="number" id="cupo-evento" name="cupo-evento" required [(ngModel)]="evento.Cupo">
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Agregar Evento</button>
+      </form>
+    </div>
+  </div>
+</body>

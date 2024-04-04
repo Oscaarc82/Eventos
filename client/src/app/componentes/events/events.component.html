@@ -1,0 +1,192 @@
+<!--<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-6">
+            <div class="card space">
+                <div class="card-header text-center">
+                    <h3 class="display-4">Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/events/new-event" method="post">
+                        <div class="mb-3 text-center">
+                            <label for="formGroupExampleInput" class="form-label text-center">Nombre completo</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre(s)" [(ngModel)]="participante.NomParticipante" [ngModelOptions]="{standalone : true}">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellido paterno"
+                                    aria-label="Apellido paterno" [(ngModel)]="participante.ApePaterno" [ngModelOptions]="{standalone : true}">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellido materno"
+                                    aria-label="Apellido materno" [(ngModel)]="participante.ApeMaterno" [ngModelOptions]="{standalone : true}">
+                            </div>
+                        </div>
+                        <hr />
+                        <h6 class="text-center">Datos de contacto</h6>
+                        <div class="row">
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Número de télefono</label>
+                                <input type="text" class="form-control" placeholder="+52 XXX XXX XX XX"
+                                    aria-label="Telefono" [(ngModel)]="participante.Telefono" [ngModelOptions]="{standalone : true}">
+                            </div>
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Ciudad</label>
+                                <select id="inputState" class="form-select" [(ngModel)]="participante.Ciudad" [ngModelOptions]="{standalone : true}">
+                                    <option value="">Seleccionar</option>
+                                    <option value="" *ngFor="let ciudad of ciudades" [value]="ciudad.NomCiudad">{{ciudad.NomCiudad}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col">
+                                <label for="inputState" class="form-label">Género</label>
+                                <select id="inputGender" class="form-select" [(ngModel)]="participante.Genero" [ngModelOptions]="{standalone : true}">
+                                    <option value="">Seleccionar</option>
+                                    <option [ngValue]="'M'">Masculino</option>
+                                    <option [ngValue]="'F'">Femenino</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Edad</label>
+                                <input type="number" class="form-control" placeholder="+ 18" [(ngModel)]="participante.Edad" [ngModelOptions]="{standalone : true}">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput" class="form-label">Cargo en la empresa</label>
+                            <select id="inputAge" class="form-select" [(ngModel)]="participante.Cargo" [ngModelOptions]="{standalone : true}">
+                                <option value>Seleccionar</option>
+                                <option value="" *ngFor="let cargo of cargos" [value]="cargo.NomCargo">Masculino</option>
+                            </select>
+                        </div>
+                        <hr />
+                        <h6 class="text-center">Datos de la cuenta</h6>
+                        <div class="form-group">
+                            <label for="inputDateStart" class="form-label">Correo electrónico</label>
+                            <input name="fechaInicio" class="form-control" type="text" id="inputDateStart" autofocus placeholder="example@gmail.com" [(ngModel)]="participante.Correo" [ngModelOptions]="{standalone : true}"/>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="inputPasswd" class="form-label">Contraseña</label>
+                            <input name="Passwd" class="form-control" type="password" id="Passwd" autofocus placeholder="********" [(ngModel)]="participante.Contrasenia" [ngModelOptions]="{standalone : true}"/>
+                        </div>
+                        <br />                        
+                        <div class="form-group">
+                            <label for="inputPasswdCnf" class="form-label">Confirmar contraseña</label>
+                            <input name="PasswdCnf" class="form-control" type="password" id="PasswdCnf" autofocus placeholder="********"/>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit" (click)="saveParticipante()">Crear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<form action="/events/new-event" method="post">
+			    <h3>Crear cuenta</h3>
+                <div class="mb-3 text-center">
+                    <h6>Nombre completo</h6>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre(s)" [(ngModel)]="participante.NomParticipante" [ngModelOptions]="{standalone : true}"/>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Apellido paterno" aria-label="Apellido paterno" [(ngModel)]="participante.ApePaterno" [ngModelOptions]="{standalone : true}"/>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Apellido materno" aria-label="Apellido materno" [(ngModel)]="participante.ApeMaterno" [ngModelOptions]="{standalone : true}"/>
+                    </div>
+                </div>
+                <hr />
+                <h6 class="text-center">Datos de contacto</h6>
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Número de télefono</label>
+                        <input type="text" class="form-control" placeholder="+52 XXX XXX XX XX"
+                            aria-label="Telefono" [(ngModel)]="participante.Telefono" [ngModelOptions]="{standalone : true}">
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Ciudad</label>
+                        <select id="inputState" class="form-select" [(ngModel)]="participante.Ciudad" [ngModelOptions]="{standalone : true}">
+                            <option value="">Seleccionar</option>
+                            <option value="" *ngFor="let ciudad of ciudades" [value]="ciudad.NomCiudad">{{ciudad.NomCiudad}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="inputState" class="form-label">Género</label>
+                        <select id="inputGender" class="form-select" [(ngModel)]="participante.Genero" [ngModelOptions]="{standalone : true}">
+                            <option value="">Seleccionar</option>
+                            <option [ngValue]="'M'">Masculino</option>
+                            <option [ngValue]="'F'">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Edad</label>
+                        <input type="number" class="form-control" placeholder="+ 18" [(ngModel)]="participante.Edad" [ngModelOptions]="{standalone : true}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput" class="form-label">Cargo en la empresa</label>
+                    <select id="inputAge" class="form-select" [(ngModel)]="participante.Cargo" [ngModelOptions]="{standalone : true}">
+                        <option value>Seleccionar</option>
+                        <option value="" *ngFor="let cargo of cargos" [value]="cargo.NomCargo">Masculino</option>
+                    </select>
+                </div>
+                <hr />
+                <h6 class="text-center">Datos de la cuenta</h6>
+                <div class="form-group">
+                    <label for="inputDateStart" class="form-label">Correo electrónico</label>
+                    <input name="fechaInicio" class="form-control" type="text" id="inputDateStart" autofocus placeholder="example@gmail.com" [(ngModel)]="participante.Correo" [ngModelOptions]="{standalone : true}"/>
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswd" class="form-label">Contraseña</label>
+                    <input name="Passwd" class="form-control" type="password" id="Passwd" autofocus placeholder="********" [(ngModel)]="participante.Contrasenia" [ngModelOptions]="{standalone : true}"/>
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswdCnf" class="form-label">Confirmar contraseña</label>
+                    <input name="PasswdCnf" class="form-control" type="password" id="PasswdCnf" autofocus placeholder="********"/>
+                </div>
+                <div class="form-group">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit" (click)="saveParticipante()">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h3>Bienvenido de vuelta</h3>
+			<br/>
+			<input type="email" placeholder="Correo electrónico" [(ngModel)]="participante.Correo" [ngModelOptions]="{standalone : true}"/>
+			<input type="password" placeholder="Contraseña"[(ngModel)]="passwd" [ngModelOptions]="{standalone : true}"/>
+			<br/>
+			<button (click)="login(participante.Correo)">Ingresar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Un gusto verte de nuevo!</h1>
+				<p>Ingresa con tu cuenta para acceder a los eventos</p>
+				<button class="ghost" id="signIn">Iniciar sesión</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hola, Amigo!</h1>
+				<p>Ingresa tus datos para comenzar a disfrutar eventos</p>
+				<button class="ghost" id="signUp">Registrarse</button>
+			</div>
+		</div>        
+    </div>
+</div>
+
